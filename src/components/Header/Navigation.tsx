@@ -1,15 +1,7 @@
-import React, { MouseEventHandler } from "react";
-import MenuLogo from "../icons/MenuLogo";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
-type INavProps = {
-    showDrawer: boolean,
-    toggleDrawer: MouseEventHandler<HTMLButtonElement>,
-    handleSettingsDropdown: MouseEventHandler<HTMLButtonElement>,
-    showSettings: boolean,
-    showDrawerMenu: boolean
-}
-
-const Navigation = ({ showDrawer, toggleDrawer, showDrawerMenu, handleSettingsDropdown, showSettings }: INavProps) => {
+const Navigation = () => {
     return (
         <>
 
@@ -20,36 +12,49 @@ const Navigation = ({ showDrawer, toggleDrawer, showDrawerMenu, handleSettingsDr
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
                             <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
+                                <NavLink to="/overview">Overview</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/my-cars">My cars</NavLink>
+                                {/* <ul className="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
-                                </ul>
+                                </ul> */}
                             </li>
-                            <li><a>Item 3</a></li>
+                            <li>
+                                <NavLink to="/payment">Payments</NavLink>
+                            </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Mecha</a>
+                    <Link className="btn btn-ghost text-xl" to="/">
+                        Mecha
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
+                    <li>
+                                <NavLink to="/overview">Overview</NavLink>
+                            </li>
                         <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
+                            {/* <details> */}
+                            <NavLink to="/my-cars">My cars</NavLink>
+                                {/* <ul className="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
+                                </ul> */}
+                            {/* </details> */}
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li>
+                                <NavLink to="/payment">Payments</NavLink>
+                            </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    <Link className="btn btn-primary btn-wide" to={'/login'}>
+                        Sign in / Sign up
+                    </Link>
+                    
                 </div>
             </div>
         </>
