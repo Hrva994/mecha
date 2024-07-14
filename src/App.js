@@ -6,8 +6,12 @@ import UserAccessLayout from './sections/UserAccess';
 import Home from './sections/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import { useState } from 'react';
+import MyCars from './sections/MyCars';
+import CarDetails from './components/CarDetails';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false)
   return (
     <div className="App">
       <HeaderSection />
@@ -16,6 +20,9 @@ function App() {
         <Route path='/' element={<Home />}>
             <Route index path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+        </Route>
+        <Route path='my-cars' element={<MyCars />}>
+          <Route path=':carId' element={<CarDetails />} />
         </Route>
       {
         routes.map((route) => {

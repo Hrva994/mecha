@@ -1,10 +1,6 @@
-import App from "../App";
-import Login from "../components/Login";
-import Home from "../sections/Home";
 import MyCars from "../sections/MyCars";
 import Overview from "../sections/Overview";
 import Payment from "../sections/Payment";
-import UserAccessLayout from "../sections/UserAccess";
 
 const routes = [
     {
